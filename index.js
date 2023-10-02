@@ -12,9 +12,14 @@ const app=express()
 app.use(cors())
 app.use(express.json())//we dont need to body parser
 
-app.use('/api',empRouter)
 
 connectDB()
+
+app.get("/",(req,res)=>{
+    res.send("connected")
+})
+
+app.use('/api',empRouter)
 
 app.listen(port,()=>{
     console.log("App is listening",port);
