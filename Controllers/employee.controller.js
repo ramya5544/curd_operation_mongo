@@ -5,13 +5,14 @@ try{
     const employee=new Employee(req.body)
     await employee.save()
 }catch(error){
-     res.status(500).json({error:"error in create employee"})
+     res.status(500).json({error:error.message})
 }
 }
 
 export const getAllEmployee=async(req,res)=>{
     try{
-           const employee=await Employee.find()
+           const employee=await Employee.find({})
+           console.log(employee);
            res.status(200).json(employee)
     }catch(error){
         res.status(500).json({error:error.message})
