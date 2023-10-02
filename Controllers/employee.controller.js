@@ -14,7 +14,7 @@ export const getAllEmployee=async(req,res)=>{
            const employee=await Employee.find()
            res.status(200).json(employee)
     }catch(error){
-        res.status(500).json({error:"error in get employee"})
+        res.status(500).json({error:error.message})
     }
     }
 
